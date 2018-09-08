@@ -20,6 +20,8 @@ once in the src folder simply use pip to install the requirements
 Load the app using python
 
     python app.py
+
+Lastly please export the XERO_CONSUMER_KEY and XERO_CONSUMER_SECRET to your os environment vars
 ## Implementation overview
 I have used the public credentials for integrating with xero and hence there is a landing page with a link to the oath flow which requires user interaction. The reason for this is problems experienced with *PyCrypto*, a library required for the private key implementation. My vision was to make this an api that synced the xero data and made it available for other applications. However the public credential developer method has the user interactions required to perform the sync and that ruined the api nature of the application.
 
