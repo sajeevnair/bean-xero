@@ -6,7 +6,7 @@ class Account(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
 
-    xero_account_id = db.Column(db.String(100), nullable=False, unique=True)
+    xero_account_id = db.Column(db.String(100), nullable=False)
     account_name = db.Column(db.String(100))
     code = db.Column(db.String(20))
     account_type = db.Column(db.String(15), nullable=False)
