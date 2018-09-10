@@ -21,7 +21,7 @@ class AuthXero(Resource):
         credentials = PublicCredentials(
             consumer_key,
             consumer_secret,
-            callback_uri='https://bean-xero.herokuapp.com/oauth')
+            callback_uri=os.environ.get('XERO_CALLBACK_URI') + '/oauth')
 
         s = SessionHistory(**credentials.state)
         try:
