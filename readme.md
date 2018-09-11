@@ -21,7 +21,17 @@ Load the app using python
 
     python app.py
 
-Lastly please export the XERO_CONSUMER_KEY and XERO_CONSUMER_SECRET to your os environment vars
+Lastly please export the XERO_CALLBACK_URI, XERO_CONSUMER_KEY and XERO_CONSUMER_SECRET to your os environment vars
+
+Using flask restful, data that has been saved is made available using an endpoint 
+    
+    xi/<xi_id>
+
+for example /xi/1 will give you all the attributes for that company including contacts and accounts.
+
+we can also add graphql that can make deeper queries simpler. 
+
+
 ## Implementation overview
 I have used the public credentials for integrating with xero and hence there is a landing page with a link to the oath flow which requires user interaction. The reason for this is problems experienced with *PyCrypto*, a library required for the private key implementation. My vision was to make this an api that synced the xero data and made it available for other applications. However the public credential developer method has the user interactions required to perform the sync and that ruined the api nature of the application.
 

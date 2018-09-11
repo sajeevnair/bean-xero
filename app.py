@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, redirect, jsonify, request
 from urllib.parse import parse_qsl, urlparse
 
-from resources import OauthXero, AuthXero, Verified
+from resources import OauthXero, AuthXero, Verified, XeroIntegration
 from flask_restful import Api
 
 app = Flask(__name__)
@@ -26,6 +26,7 @@ def index():
 api.add_resource(AuthXero, '/auth')
 api.add_resource(OauthXero, '/oauth')
 api.add_resource(Verified, '/verified')
+api.add_resource(XeroIntegration, '/xi/<string:xi_id>')
 
 if __name__ == '__main__':
     from db import db

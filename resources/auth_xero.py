@@ -21,7 +21,7 @@ class AuthXero(Resource):
         credentials = PublicCredentials(
             consumer_key,
             consumer_secret,
-            callback_uri=os.environ.get('XERO_CALLBACK_URI') + '/oauth')
+            callback_uri=os.environ.get('XERO_CALLBACK_URI'))
 
         s = SessionHistory(**credentials.state)
         try:

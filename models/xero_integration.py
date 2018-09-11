@@ -39,3 +39,17 @@ class XeroIntegration(db.Model):
     def delete_from_db(self):
         db.session.delete(self)
         db.session.commit()
+
+    @classmethod
+    def get_by_id(cls, xi_id):
+        return cls.query.filter_by(id=xi_id).one()
+
+    def json(self):
+        return {
+            'org_name': self.org_name,
+            'email': self.email,
+            'website': self.website,
+            'contacts': [c.json() for c in self.contacts],
+            'accounts': [a.json() for a in self.accounts]
+
+        }
